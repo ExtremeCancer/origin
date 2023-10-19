@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 
 int main() {
@@ -25,21 +25,21 @@ int main() {
         inputFile >> arrayM[i];
     }
 
-   
+    // Сдвигаем элементы массива M вправо
     int lastElementM = arrayM[m - 1];
     for (int i = m - 1; i > 0; i--) {
         arrayM[i] = arrayM[i - 1];
     }
     arrayM[0] = lastElementM;
 
-   
+    // Сдвигаем элементы массива N влево
     int firstElementN = arrayN[0];
     for (int i = 0; i < n - 1; i++) {
         arrayN[i] = arrayN[i + 1];
     }
     arrayN[n - 1] = firstElementN;
 
-    
+    // Записываем массивы в выходной файл
     outputFile << m << std::endl;
     for (int i = 0; i < m; i++) {
         outputFile << arrayM[i] << " ";
@@ -52,11 +52,11 @@ int main() {
     }
     outputFile << std::endl;
 
-    
+    // Освобождаем память
     delete[] arrayN;
     delete[] arrayM;
 
-   
+    // Закрываем файлы
     inputFile.close();
     outputFile.close();
 
